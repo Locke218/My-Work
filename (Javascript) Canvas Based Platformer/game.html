@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	
+	<title>Game</title>
+	
+	<style>
+		body{
+			background-color: lightblue;
+		}
+		#audioControls{display:none;}
+		
+		@font-face{
+			font-family: 'Edo';
+			src: url('media/edo.ttf') format('truetype');
+		}
+		
+	</style>
+	
+</head>
+<body>
+	<span style="font-family: 'Edo';">&nbsp;</span>
+	<canvas>
+		Get a real browser!
+	</canvas>
+	
+	<script src='js/utilities.js'></script>
+	<script src='js/loader.js'></script>
+	<script src='js/main.js'></script>
+	<script src='js/keys.js'></script>
+	<script src='js/sound.js'></script>
+	<script src='js/platforms.js'></script>
+	<script src='js/character.js'></script>
+	<script src='js/enemy.js'></script>
+	<script src='js/timer.js'></script>
+	<script src='js/powerUp.js'></script>
+	
+	<section id="audioControls">
+		<audio id="bgAudio" src="media/background.mp3" controls loop></audio>
+		<audio id="effectAudio" controls></audio>
+	</section>
+	
+</body>
+</html>

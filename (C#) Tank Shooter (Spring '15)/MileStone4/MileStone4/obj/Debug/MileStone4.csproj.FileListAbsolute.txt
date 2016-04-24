@@ -1,0 +1,10 @@
+c:\users\zane\documents\visual studio 2013\Projects\MileStone4\MileStone4\bin\Debug\MileStone4.exe.config
+c:\users\zane\documents\visual studio 2013\Projects\MileStone4\MileStone4\bin\Debug\MileStone4.exe
+c:\users\zane\documents\visual studio 2013\Projects\MileStone4\MileStone4\bin\Debug\MileStone4.pdb
+c:\users\zane\documents\visual studio 2013\Projects\MileStone4\MileStone4\obj\Debug\MileStone4.csprojResolveAssemblyReference.cache
+c:\users\zane\documents\visual studio 2013\Projects\MileStone4\MileStone4\obj\Debug\MileStone4.InfoForm.resources
+c:\users\zane\documents\visual studio 2013\Projects\MileStone4\MileStone4\obj\Debug\MileStone4.GameForm.resources
+c:\users\zane\documents\visual studio 2013\Projects\MileStone4\MileStone4\obj\Debug\MileStone4.Properties.Resources.resources
+c:\users\zane\documents\visual studio 2013\Projects\MileStone4\MileStone4\obj\Debug\MileStone4.csproj.GenerateResource.Cache
+c:\users\zane\documents\visual studio 2013\Projects\MileStone4\MileStone4\obj\Debug\MileStone4.exe
+c:\users\zane\documents\visual studio 2013\Projects\MileStone4\MileStone4\obj\Debug\MileStone4.pdb

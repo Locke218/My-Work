@@ -1,0 +1,30 @@
+c:\users\zane\documents\visual studio 2013\Projects\MileStone4\MileStone4\bin\Debug\MileStone4.exe.config
+c:\users\zane\documents\visual studio 2013\Projects\MileStone4\MileStone4\bin\Debug\MileStone4.exe
+c:\users\zane\documents\visual studio 2013\Projects\MileStone4\MileStone4\bin\Debug\MileStone4.pdb
+c:\users\zane\documents\visual studio 2013\Projects\MileStone4\MileStone4\obj\Debug\MileStone4.csprojResolveAssemblyReference.cache
+c:\users\zane\documents\visual studio 2013\Projects\MileStone4\MileStone4\obj\Debug\MileStone4.InfoForm.resources
+c:\users\zane\documents\visual studio 2013\Projects\MileStone4\MileStone4\obj\Debug\MileStone4.GameForm.resources
+c:\users\zane\documents\visual studio 2013\Projects\MileStone4\MileStone4\obj\Debug\MileStone4.Properties.Resources.resources
+c:\users\zane\documents\visual studio 2013\Projects\MileStone4\MileStone4\obj\Debug\MileStone4.csproj.GenerateResource.Cache
+c:\users\zane\documents\visual studio 2013\Projects\MileStone4\MileStone4\obj\Debug\MileStone4.exe
+c:\users\zane\documents\visual studio 2013\Projects\MileStone4\MileStone4\obj\Debug\MileStone4.pdb
+C:\Users\Zane\Downloads\MileStone4\MileStone4\bin\Debug\MileStone4.exe.config
+C:\Users\Zane\Downloads\MileStone4\MileStone4\obj\Debug\MileStone4.exe
+C:\Users\Zane\Downloads\MileStone4\MileStone4\obj\Debug\MileStone4.pdb
+C:\Users\Zane\Downloads\MileStone4\MileStone4\bin\Debug\MileStone4.exe
+C:\Users\Zane\Downloads\MileStone4\MileStone4\bin\Debug\MileStone4.pdb
+C:\Users\Zane\Downloads\MileStone4\MileStone4\obj\Debug\MileStone4.csprojResolveAssemblyReference.cache
+C:\Users\Zane\Downloads\MileStone4\MileStone4\obj\Debug\MileStone4.InfoForm.resources
+C:\Users\Zane\Downloads\MileStone4\MileStone4\obj\Debug\MileStone4.GameForm.resources
+C:\Users\Zane\Downloads\MileStone4\MileStone4\obj\Debug\MileStone4.Properties.Resources.resources
+C:\Users\Zane\Downloads\MileStone4\MileStone4\obj\Debug\MileStone4.csproj.GenerateResource.Cache
+C:\Users\Zane\Documents\SourceTree\My-Work\(C#) Tank Shooter (Spring '15)\MileStone4\bin\Debug\MileStone4.exe.config
+C:\Users\Zane\Documents\SourceTree\My-Work\(C#) Tank Shooter (Spring '15)\MileStone4\obj\Debug\MileStone4.exe
+C:\Users\Zane\Documents\SourceTree\My-Work\(C#) Tank Shooter (Spring '15)\MileStone4\obj\Debug\MileStone4.pdb
+C:\Users\Zane\Documents\SourceTree\My-Work\(C#) Tank Shooter (Spring '15)\MileStone4\bin\Debug\MileStone4.exe
+C:\Users\Zane\Documents\SourceTree\My-Work\(C#) Tank Shooter (Spring '15)\MileStone4\bin\Debug\MileStone4.pdb
+C:\Users\Zane\Documents\SourceTree\My-Work\(C#) Tank Shooter (Spring '15)\MileStone4\obj\Debug\MileStone4.csprojResolveAssemblyReference.cache
+C:\Users\Zane\Documents\SourceTree\My-Work\(C#) Tank Shooter (Spring '15)\MileStone4\obj\Debug\MileStone4.InfoForm.resources
+C:\Users\Zane\Documents\SourceTree\My-Work\(C#) Tank Shooter (Spring '15)\MileStone4\obj\Debug\MileStone4.GameForm.resources
+C:\Users\Zane\Documents\SourceTree\My-Work\(C#) Tank Shooter (Spring '15)\MileStone4\obj\Debug\MileStone4.Properties.Resources.resources
+C:\Users\Zane\Documents\SourceTree\My-Work\(C#) Tank Shooter (Spring '15)\MileStone4\obj\Debug\MileStone4.csproj.GenerateResource.Cache

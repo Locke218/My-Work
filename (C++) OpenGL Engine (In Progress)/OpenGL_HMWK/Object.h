@@ -1,9 +1,3 @@
-//AUTHOR: Zane Draper
-//
-//PURPOSE: Declares variables and methods for the objects
-//
-//**********************************
-
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
@@ -27,23 +21,19 @@ using namespace glm;
 class Object
 {
 public:
-	//Methods
 	Object();
 	~Object();
 	void reset();
 	bool collidesWith(const Object &object);
 
-	//Enum for the collision type
 	enum CollisionType {
 		colliderless,
 		aabb,
 		sphere,
-	};
+	} colType;
 
-	//Variables on objects
 	Transform transform;
 	string fileName;
 	RigidBody rigidBody;
-	CollisionType colType;
 };
 

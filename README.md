@@ -1,6 +1,6 @@
 # My-Work
-Contains some examples of programs I've created among various languages.
+Author: Zane Draper
 
-For further information on each project, a README should be contained within each folder.
+Description: This repository contains a large variety of programming projects I have work on, across numerous different languages. Further information on each section can be found on another README within each project folder.
 
 For any further inquiries, feel free to contact me at ztd9457@g.rit.edu

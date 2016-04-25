@@ -1,46 +1,48 @@
-#Autonomous Agents Unity Project
-Author: Zane Draper
+#Humans Vs. Zombies Flocking Algorithms
 
-Platform: Unity 3D
+**Author:** Zane Draper
 
-Language: C# Scripting
+**Platform:** Processing
 
-Description:
+**Language:** Processing
 
-1. A description of your world .
-  Welcome to the wonderful world of 3D Pokemon. In this world, the trainer wanders the
-  ‘country’ trying to catch all the pokemon. In this case, there are only 2 Pokemon available, but
-  he’ll have to make due. All the assets are from the pokemon game Omega Ruby. The pokemon
-  on the other had, search the country for eggs, which when picked up, replenish their ranks. I
-  believe the overall concept and goals are quite clear.
+**Description:**
 
-2. Steering Behaviors.
-  In this simulation, the Cubones and Charmanders are the flockers. They follow all the basic
-  flocking behaviors ( alignment, separation and cohesion). They also follow Leader Following.
-  This means that they are constantly seeking out a spot directly behind their Leader. This spot is
-  along the reverse of the Forward vector. The leaders are Charmeleon and Marowak, the larger
-  of the Pokemon in the scene. These Pokemon follow the Path Following behaviors. There is a
-  set path they they move throughout the map. They will always seek the closest path to them.
-  For both types of Pokemon, everything but separation is turned off when they are being
-  pursued by a trainer. When the Path Following turns back on, they will move gradually back
-  onto the path closest.
+* Version A:
+	
+  * This project was based around creating Autonomous Agents. The agents in this game thus far seek, flee, evaid, pursue chase and wander. All these functions are essential for creating a semi-lifelike NPC. The humans in this simulation begin the game by wandering. By using a simple rotation based off of the forward vector, the movement looks natural. Upon coming within a certain distance of an enemy, the human begins to flee in the opposite direction.
+	
+  * On the other hand, zombies begin pursuing the human. Humans are slightly faster then zombies, and groups are needed to corner humans. Upon contact between these zombies and humans, the human is destroyed and a zombie is created in its place. These zombies then likewise begin chasing other humans until none remain.
+	
+  * At any time, the user can activate Debug Mode, by clicking the 'P' button. To spawn new humans, click the mouse anywhere inside the screen.
+	
+* Version B:
+	
+  * The humans and zombies avoid obstacles at a distance, to look more natural. Evade is now also included in the simulation. Instead of running from a zombies current position, the humans run from the position they will soon be in. Likewise, zombies	now pursue the human they are chasing's future position. Proper images are used to represent humans and zombies. This is done using the futurePos()  method in the vehicle class. This led to the least maintenance in the code.
 
-3. Character response to other characters:
-  All Pokemon flee from the trainer when he is in their area. The trainer is constantly searching
-  for the closest pokemon. When he finds that Pokemon he catches it. The flocking herd of
-  pokemon follow their leader and after they are done being pursued, the seek their leader out
-  again.
-
-4. Character response to the environment:
-  Flockers in this simulation will divert away from their leader in order to collect eggs scattered in
-  the scene. These eggs then turn into more pokemon and join their flock. When being pursued
-  by a trainer, the Pokemon can also move through grassy areas. These grassy areas hide them
-  from the trainer. When the trainer has collected 6 Pokemon, they move to the Pokecenter in
-  order to drop all their pokemon off, and then continue chasing pokemon.
-
-5. Other notes:
-  To switch between camera views, press the spacebar.
-
-6. Resources:
-  The models used in my scene where found on the Model Resource ( Link Below )
-  http://www.models-resource.com/3ds/pokemonxy/
+**Code:**
+* Humans (Runner)
+	* Humans inherit from Vehicle
+	* They have a flee() method that calls seek()
+	* In Debug, forward and right vectors can be seen
+	* Are destroyed when touched
+	* Evade() now avoids zombie future position
+* Zombies (Seeker)
+	* Zombies inherit from Vehicle
+	* They have a chase() method that finds the closest human
+	* In Debug, forward and right vectors can be seen
+	* Spawn when humans die
+	* Pursue() now moves to humans future position.
+* Vehicle
+	* Has a checkBounds() method
+	* Contains a wander() method for when the npc's are inactive
+	* smoothly avoids obstacles
+* Obstacle Avoidance
+	* Trees places in the scene are avoided by humans and zombies.
+* Additional Features:
+	* Press 'P' to bring up debug mode
+	* Click with the mouse to spawn a new human
+		
+		
+**Room for Improvement:**
+* I would like to improve the animation used to create a more active scene. The boundary and obstacle movements could be smoother.

@@ -1,11 +1,11 @@
 #Autonomous Agents Unity Project
-Author: Zane Draper
+**Author:** Zane Draper
 
-Platform: Unity 3D
+**Platform:** Unity 3D
 
-Language: C# Scripting
+**Language:** C# Scripting
 
-Description:
+**Description:**
 
 1. A description of your world .
   Welcome to the wonderful world of 3D Pokemon. In this world, the trainer wanders the

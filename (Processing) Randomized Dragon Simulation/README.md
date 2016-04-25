@@ -22,7 +22,7 @@
     * Kite spawn timing
     * Kite color
     * Fade of stars
-*Other random elements:
+* Other random elements:
     * Rain population
     * kite depth
     * Fire color, angle and fade out rate

@@ -5,6 +5,13 @@ Platform: Processing
 
 Language: Processing
 
+Description:
+	This project displays a dragon shaped kite
+	
+	In the background
+	
+	Finally, there is
+
 Project Description:
 	1. This project displays a dragon shaped kite, showing the strings and sectioned body. This dragon moves using
 	a Perlin Noise random generator to decide the height of the body in a smooth fashion. Other kites also scroll by,

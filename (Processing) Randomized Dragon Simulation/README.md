@@ -17,7 +17,7 @@ Project Description:
 	also stars randomly dispersed across the sky, using Guassian random generators to decide on location and the
 	opacity of the stars. Also, there is a cover that fades in and out over the stars and moons to create a dark 
 	effect to show the rain better.
-
+	
 	Finally, there is rain in the scene. This rain is on top of everything else, and comes and goes in 
 	intervoles, fading in and out as it goes. The rain is randomly generated in varying amount using Perlin 
 	Noise to create a more natural looking rain. The speed, opacity and number of the rain is also randomly generated.

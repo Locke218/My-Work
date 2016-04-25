@@ -1,13 +1,9 @@
-#Autonomous Agents Unity Project
+#Rolling on Random
 Author: Zane Draper
 
-Platform: Unity 3D
+Platform: Processing
 
-Language: C# Scripting
-
-Homework #1: Rolling on Random
-
-Student: Zane Draper
+Language: Processing
 
 Project Description:
 	This project displays a dragon shaped kite, showing the strings and sectioned body. This dragon moves using

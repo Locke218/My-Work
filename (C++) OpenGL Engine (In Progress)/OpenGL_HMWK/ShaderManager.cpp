@@ -1,24 +1,17 @@
-//AUTHOR: Zane Draper
-//
-//PURPOSE: Load and maintain shaders
-//
-//**********************************
-
 #include "ShaderManager.h"
 
 
-//ShaderManager Constructor
+
 ShaderManager::ShaderManager()
 {
 	program = 0;
 }
 
-//ShaderManager Deconstructor
+
 ShaderManager::~ShaderManager()
 {
 }
 
-//Method: Load Shaders
 bool ShaderManager::loadShaders(const char* vertexFile, const char* fragmentFile) {
 	GLuint vertexShader = loadShader(vertexFile, GL_VERTEX_SHADER);
 	GLuint fragmentShader = loadShader(fragmentFile, GL_FRAGMENT_SHADER);
@@ -54,7 +47,6 @@ bool ShaderManager::loadShaders(const char* vertexFile, const char* fragmentFile
 	else return true;
 }
 
-//Loads an individual shader based off of filename
 GLuint ShaderManager::loadShader(const char* file, GLenum shaderType) {
 
 	ifstream inFile;
@@ -112,7 +104,7 @@ GLuint ShaderManager::loadShader(const char* file, GLenum shaderType) {
 
 }
 
-//Returns the class program
+
 GLuint ShaderManager::getProgram() const {
 	return program;
 }

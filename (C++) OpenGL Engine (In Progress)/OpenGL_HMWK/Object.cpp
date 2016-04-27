@@ -12,7 +12,7 @@ Object::Object()
 	rigidBody.mass = .1;
 	rigidBody.velocity = 0;
 
-	colType = sphere;
+	colType = aabb;
 }
 
 
@@ -48,7 +48,7 @@ bool Object::collidesWith(const Object &object) {
 
 	}
 	else {
-		int distance = 0;
+		float distance = 0;
 
 		Transform tempAABB;
 		Transform tempSphere;
@@ -62,9 +62,6 @@ bool Object::collidesWith(const Object &object) {
 			tempSphere = object.transform;
 		}
 
-		cout << "AAB?: " << tempAABB.location.y;
-		cout << "Sphere?: " << tempSphere.location.y;
-
 		for (int i = 0; i < 3; i++ ) {
 			float max = tempAABB.location[i] + tempAABB.size[i];
 			float min = tempAABB.location[i] - tempAABB.size[i];
@@ -74,13 +71,15 @@ bool Object::collidesWith(const Object &object) {
 				distance += pow(min - current, 2);
 			}
 			else if (tempSphere.location[i] > max) {
-				distance += pow(current - min, 2);
+				distance += pow(current - max, 2);
 			}
 		}
 
-		if (distance < (tempSphere.size.x * tempSphere.size.x)) {
+		if (distance > pow(tempSphere.size.x, 2)) {
 			return false;
 		}
 	}
+
+	cout << "true" << endl;
 	return true;
 }

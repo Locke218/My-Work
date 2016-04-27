@@ -1,9 +1,3 @@
-//AUTHOR: Zane Draper
-//
-//PURPOSE: Declaring Engine methods and variables
-//
-//**********************************
-
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
@@ -23,11 +17,9 @@ using namespace glm;
 
 #pragma once
 
-//Main engine class
 class Engine
 {
 public:
-	//Methods
 	Engine();
 	~Engine();
 	bool init();
@@ -37,19 +29,16 @@ public:
 	bool loadTextures();
 	void update();
 	void resetTransforms();
-
-	//Variables
 	unsigned int* texIDs;
 	bool swap;
+	vector<Object> objects;
+
 	float currentTime;
 	float previousTime;
 	float deltaTime;
-
-	//Vector array of objects
-	vector<Object> objects;
+	mat4 camMat;
 
 private:
-	//Variables
 	GLFWwindow* GLFWwindowPtr;
 	GLuint vertArr;
 	unsigned int vertCount;

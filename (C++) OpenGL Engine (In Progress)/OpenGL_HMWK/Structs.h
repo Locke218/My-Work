@@ -15,6 +15,19 @@ using namespace glm;
 
 #pragma once
 
+map<int, bool> keyIsDown;
+map<int, bool> keyIsUp;
+map<int, bool> keyWasDown;
+
+
+void mouseClick(GLFWwindow * windowPtr, int button, int action, int mods) {
+	keyIsDown[button] = action;
+}
+
+void keyCallback(GLFWwindow * window, int key, int scancode, int action, int mods) {
+	keyIsDown[key] = action;
+}
+
 struct Vertex {
 	vec3 loc;
 	vec2 uv;

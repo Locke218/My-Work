@@ -1,3 +1,5 @@
+#pragma once
+
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
@@ -14,8 +16,6 @@
 using namespace std;
 using namespace glm;
 
-#pragma once
-
 class Camera
 {
 public:
@@ -24,10 +24,22 @@ public:
 
 	void calcView();
 	void calcPersp();
-	void update();
+	void update(GLFWwindow *window);
 
 	mat4 persMat;
 	mat4 viewMat;
+
 	mat4 camMat;
+	Transform transform;
+	RigidBody rigidbody;
+
+	float fovy;
+	float aspect;
+	float zNear;
+	float zFar;
+
+	vec3 camLoc;
+	vec3 camRot;
+	vec3 camVel;
 };
 

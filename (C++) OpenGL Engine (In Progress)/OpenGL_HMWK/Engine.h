@@ -1,3 +1,5 @@
+#pragma once
+
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
@@ -11,11 +13,10 @@
 
 #include "Object.h"
 #include "ShaderManager.h"
+#include "Camera.h"
 
 using namespace std;
 using namespace glm;
-
-#pragma once
 
 class Engine
 {
@@ -37,6 +38,7 @@ public:
 	float previousTime;
 	float deltaTime;
 	mat4 camMat;
+	Camera camera;
 
 private:
 	GLFWwindow* GLFWwindowPtr;

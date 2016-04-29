@@ -2,6 +2,11 @@
 
 Camera::Camera()
 {
+	camLoc = { 0, 0, 2 };
+	camRot = { 0, 0, 0 };
+
+	calcPersp();
+	calcView();
 }
 
 
@@ -35,10 +40,7 @@ void Camera::calcPersp() {
 	persMat = glm::perspective(fovy, aspect, zNear, zFar);
 }
 
-void Camera::update() {
-	vec3 camVel;
-	vec3 camRot = { 0, 0, 0 };
-
+void Camera::update(GLFWwindow *window) {
 	float sens = .005;
 	int w = 800, h = 600;
 	double x, y;
@@ -51,13 +53,12 @@ void Camera::update() {
 
 	mat3 R = (mat3)glm::yawPitchRoll(camRot.y, camRot.x, camRot.z);
 
-	if (keyIsDown[GLFW_KEY_LEFT]) camVel += R * vec3(-1, 0, 0);
-	if (keyIsDown[GLFW_KEY_RIGHT]) camVel += R * vec3(1, 0, 0);
-	if (keyIsDown[GLFW_KEY_UP]) camVel += R * vec3(0, 0, -1);
-	if (keyIsDown[GLFW_KEY_DOWN]) camVel += R * vec3(0, 0, 1);
+	if (Input::keyIsDown[GLFW_KEY_LEFT]) camVel += R * vec3(-1, 0, 0);
+	if (Input::keyIsDown[GLFW_KEY_RIGHT]) camVel += R * vec3(1, 0, 0);
+	if (Input::keyIsDown[GLFW_KEY_UP]) camVel += R * vec3(0, 0, -1);
+	if (Input::keyIsDown[GLFW_KEY_DOWN]) camVel += R * vec3(0, 0, 1);
 
 	float speed = 1.f;
 
 	if (camVel != vec3()) camVel = glm::normalize(camVel) * speed;
-
 }

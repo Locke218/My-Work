@@ -23,6 +23,8 @@ Engine::Engine()
 	currentTime = 0;
 	previousTime = 0;
 
+	camera = Camera();
+
 	camMat = mat4();
 }
 
@@ -111,8 +113,8 @@ bool Engine::bufferModel() {
 
 	glBindVertexArray(0);
 
-	glfwSetMouseButtonCallback(GLFWwindowPtr, mouseClick);
-	glfwSetKeyCallback(GLFWwindowPtr, keyCallback);
+	glfwSetMouseButtonCallback(GLFWwindowPtr, Input::mouseClick);
+	glfwSetKeyCallback(GLFWwindowPtr, Input::keyCallback);
 
 	glClearColor(0.392f, 0.584f, 0.929f, 1.0f);
 
@@ -146,18 +148,18 @@ bool Engine::gameLoop() {
 
 		glfwSwapBuffers(GLFWwindowPtr);
 
-		keyWasDown = keyIsDown;
+		Input::keyWasDown = Input::keyIsDown;
 		glfwPollEvents();
 
-		if (keyIsDown[GLFW_KEY_ESCAPE]) {
+		if (Input::keyIsDown[GLFW_KEY_ESCAPE]) {
 			glfwSetWindowShouldClose(GLFWwindowPtr, true);
 		}
 
-		if (keyIsDown[GLFW_MOUSE_BUTTON_1] && !keyWasDown[GLFW_MOUSE_BUTTON_1]) {
+		if (Input::keyIsDown[GLFW_MOUSE_BUTTON_1] && !Input::keyWasDown[GLFW_MOUSE_BUTTON_1]) {
 			if (swap == true) swap = false;
 			else swap = true;
 		}
-		if (keyIsDown[GLFW_MOUSE_BUTTON_2] && !keyWasDown[GLFW_MOUSE_BUTTON_2]) {
+		if (Input::keyIsDown[GLFW_MOUSE_BUTTON_2] && !Input::keyWasDown[GLFW_MOUSE_BUTTON_2]) {
 			resetTransforms();
 		}
 	}

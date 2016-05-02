@@ -12,6 +12,7 @@
 #include <vector>
 
 #include "Structs.h"
+#include "InputController.h"
 
 using namespace std;
 using namespace glm;
@@ -24,7 +25,8 @@ public:
 
 	void calcView();
 	void calcPersp();
-	void update(GLFWwindow *window);
+	void updateMatrix();
+	void update(GLFWwindow *window, map<int, bool> keys);
 
 	mat4 persMat;
 	mat4 viewMat;
@@ -37,9 +39,5 @@ public:
 	float aspect;
 	float zNear;
 	float zFar;
-
-	vec3 camLoc;
-	vec3 camRot;
-	vec3 camVel;
 };
 

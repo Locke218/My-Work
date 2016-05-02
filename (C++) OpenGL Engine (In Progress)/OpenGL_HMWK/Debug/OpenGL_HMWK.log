@@ -1,23 +1,7 @@
-﻿  Engine.cpp
-\\banner.main.ad.rit.edu\students\ztd9457\igmprofile\documents\my-work\(c++) opengl engine (in progress)\opengl_hmwk\structs.h(24): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
-\\banner.main.ad.rit.edu\students\ztd9457\igmprofile\documents\my-work\(c++) opengl engine (in progress)\opengl_hmwk\structs.h(28): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
-\\banner.main.ad.rit.edu\students\ztd9457\igmprofile\documents\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(127): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-\\banner.main.ad.rit.edu\students\ztd9457\igmprofile\documents\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(225): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-\\banner.main.ad.rit.edu\students\ztd9457\igmprofile\documents\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(231): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-Engine.obj : error LNK2005: "void __cdecl Input::keyCallback(struct GLFWwindow *,int,int,int,int)" (?keyCallback@Input@@YAXPAUGLFWwindow@@HHHH@Z) already defined in Camera.obj
-Engine.obj : error LNK2005: "void __cdecl Input::mouseClick(struct GLFWwindow *,int,int,int)" (?mouseClick@Input@@YAXPAUGLFWwindow@@HHH@Z) already defined in Camera.obj
-Engine.obj : error LNK2005: "class std::map<int,bool,struct std::less<int>,class std::allocator<struct std::pair<int const ,bool> > > Input::keyIsDown" (?keyIsDown@Input@@3V?$map@H_NU?$less@H@std@@V?$allocator@U?$pair@$$CBH_N@std@@@2@@std@@A) already defined in Camera.obj
-Engine.obj : error LNK2005: "class std::map<int,bool,struct std::less<int>,class std::allocator<struct std::pair<int const ,bool> > > Input::keyIsUp" (?keyIsUp@Input@@3V?$map@H_NU?$less@H@std@@V?$allocator@U?$pair@$$CBH_N@std@@@2@@std@@A) already defined in Camera.obj
-Engine.obj : error LNK2005: "class std::map<int,bool,struct std::less<int>,class std::allocator<struct std::pair<int const ,bool> > > Input::keyWasDown" (?keyWasDown@Input@@3V?$map@H_NU?$less@H@std@@V?$allocator@U?$pair@$$CBH_N@std@@@2@@std@@A) already defined in Camera.obj
-Main.obj : error LNK2005: "void __cdecl Input::keyCallback(struct GLFWwindow *,int,int,int,int)" (?keyCallback@Input@@YAXPAUGLFWwindow@@HHHH@Z) already defined in Camera.obj
-Main.obj : error LNK2005: "void __cdecl Input::mouseClick(struct GLFWwindow *,int,int,int)" (?mouseClick@Input@@YAXPAUGLFWwindow@@HHH@Z) already defined in Camera.obj
-Main.obj : error LNK2005: "class std::map<int,bool,struct std::less<int>,class std::allocator<struct std::pair<int const ,bool> > > Input::keyIsDown" (?keyIsDown@Input@@3V?$map@H_NU?$less@H@std@@V?$allocator@U?$pair@$$CBH_N@std@@@2@@std@@A) already defined in Camera.obj
-Main.obj : error LNK2005: "class std::map<int,bool,struct std::less<int>,class std::allocator<struct std::pair<int const ,bool> > > Input::keyIsUp" (?keyIsUp@Input@@3V?$map@H_NU?$less@H@std@@V?$allocator@U?$pair@$$CBH_N@std@@@2@@std@@A) already defined in Camera.obj
-Main.obj : error LNK2005: "class std::map<int,bool,struct std::less<int>,class std::allocator<struct std::pair<int const ,bool> > > Input::keyWasDown" (?keyWasDown@Input@@3V?$map@H_NU?$less@H@std@@V?$allocator@U?$pair@$$CBH_N@std@@@2@@std@@A) already defined in Camera.obj
-Object.obj : error LNK2005: "void __cdecl Input::keyCallback(struct GLFWwindow *,int,int,int,int)" (?keyCallback@Input@@YAXPAUGLFWwindow@@HHHH@Z) already defined in Camera.obj
-Object.obj : error LNK2005: "void __cdecl Input::mouseClick(struct GLFWwindow *,int,int,int)" (?mouseClick@Input@@YAXPAUGLFWwindow@@HHH@Z) already defined in Camera.obj
-Object.obj : error LNK2005: "class std::map<int,bool,struct std::less<int>,class std::allocator<struct std::pair<int const ,bool> > > Input::keyIsDown" (?keyIsDown@Input@@3V?$map@H_NU?$less@H@std@@V?$allocator@U?$pair@$$CBH_N@std@@@2@@std@@A) already defined in Camera.obj
-Object.obj : error LNK2005: "class std::map<int,bool,struct std::less<int>,class std::allocator<struct std::pair<int const ,bool> > > Input::keyIsUp" (?keyIsUp@Input@@3V?$map@H_NU?$less@H@std@@V?$allocator@U?$pair@$$CBH_N@std@@@2@@std@@A) already defined in Camera.obj
-Object.obj : error LNK2005: "class std::map<int,bool,struct std::less<int>,class std::allocator<struct std::pair<int const ,bool> > > Input::keyWasDown" (?keyWasDown@Input@@3V?$map@H_NU?$less@H@std@@V?$allocator@U?$pair@$$CBH_N@std@@@2@@std@@A) already defined in Camera.obj
+﻿  Camera.cpp
+\\banner.main.ad.rit.edu\students\ztd9457\igmprofile\documents\my-work\(c++) opengl engine (in progress)\opengl_hmwk\camera.cpp(11): warning C4305: '=': truncation from 'double' to 'float'
+\\banner.main.ad.rit.edu\students\ztd9457\igmprofile\documents\my-work\(c++) opengl engine (in progress)\opengl_hmwk\camera.cpp(56): warning C4305: 'initializing': truncation from 'double' to 'float'
+\\banner.main.ad.rit.edu\students\ztd9457\igmprofile\documents\my-work\(c++) opengl engine (in progress)\opengl_hmwk\camera.cpp(62): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+\\banner.main.ad.rit.edu\students\ztd9457\igmprofile\documents\my-work\(c++) opengl engine (in progress)\opengl_hmwk\camera.cpp(63): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
 LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
-\\banner.main.ad.rit.edu\students\ztd9457\IGMProfile\Documents\My-Work\(C++) OpenGL Engine (In Progress)\Debug\OpenGL_HMWK.exe : fatal error LNK1169: one or more multiply defined symbols found
+  OpenGL_HMWK.vcxproj -> \\banner.main.ad.rit.edu\students\ztd9457\IGMProfile\Documents\My-Work\(C++) OpenGL Engine (In Progress)\Debug\OpenGL_HMWK.exe

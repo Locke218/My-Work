@@ -1,5 +1,16 @@
 #include "Engine.h"
-#include "Structs.h"
+
+map<int, bool> keyIsDown;
+map<int, bool> keyIsUp;
+map<int, bool> keyWasDown;
+
+void mouseClick(GLFWwindow * windowPtr, int button, int action, int mods) {
+	keyIsDown[button] = action;
+}
+
+void keyCallback(GLFWwindow * window, int key, int scancode, int action, int mods) {
+	keyIsDown[key] = action;
+}
 
 Engine::Engine()
 {
@@ -24,8 +35,6 @@ Engine::Engine()
 	previousTime = 0;
 
 	camera = Camera();
-
-	camMat = mat4();
 }
 
 Engine::~Engine()
@@ -113,8 +122,8 @@ bool Engine::bufferModel() {
 
 	glBindVertexArray(0);
 
-	glfwSetMouseButtonCallback(GLFWwindowPtr, Input::mouseClick);
-	glfwSetKeyCallback(GLFWwindowPtr, Input::keyCallback);
+	glfwSetMouseButtonCallback(GLFWwindowPtr, mouseClick);
+	glfwSetKeyCallback(GLFWwindowPtr, keyCallback);
 
 	glClearColor(0.392f, 0.584f, 0.929f, 1.0f);
 
@@ -132,7 +141,7 @@ bool Engine::gameLoop() {
 
 		update();
 
-		glUniformMatrix4fv(3, 1, GL_FALSE, &camMat[0][0]);
+		glUniformMatrix4fv(3, 1, GL_FALSE, &camera.camMat[0][0]);
 
 		glBindVertexArray(vertArr);
 
@@ -148,18 +157,18 @@ bool Engine::gameLoop() {
 
 		glfwSwapBuffers(GLFWwindowPtr);
 
-		Input::keyWasDown = Input::keyIsDown;
+		keyWasDown = keyIsDown;
 		glfwPollEvents();
 
-		if (Input::keyIsDown[GLFW_KEY_ESCAPE]) {
+		if (keyIsDown[GLFW_KEY_ESCAPE]) {
 			glfwSetWindowShouldClose(GLFWwindowPtr, true);
 		}
 
-		if (Input::keyIsDown[GLFW_MOUSE_BUTTON_1] && !Input::keyWasDown[GLFW_MOUSE_BUTTON_1]) {
+		if (keyIsDown[GLFW_MOUSE_BUTTON_1] && !keyWasDown[GLFW_MOUSE_BUTTON_1]) {
 			if (swap == true) swap = false;
 			else swap = true;
 		}
-		if (Input::keyIsDown[GLFW_MOUSE_BUTTON_2] && !Input::keyWasDown[GLFW_MOUSE_BUTTON_2]) {
+		if (keyIsDown[GLFW_MOUSE_BUTTON_2] && !keyWasDown[GLFW_MOUSE_BUTTON_2]) {
 			resetTransforms();
 		}
 	}
@@ -243,6 +252,8 @@ void Engine::update() {
 			cout << " " << i << ": Collision" << endl;
 		}
 	}
+
+    camera.update(GLFWwindowPtr, keyIsDown);
 
 }
 

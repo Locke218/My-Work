@@ -2,11 +2,18 @@
 
 Camera::Camera()
 {
-	camLoc = { 0, 0, 2 };
-	camRot = { 0, 0, 0 };
+
+	transform.location = vec3(0,0,2);
+	transform.rotation = vec3( 0, 0, 0 );
+	transform.size = { .25, .25, .25 };
+
+	rigidbody.force = 0;
+	rigidbody.mass = .1;
+	rigidbody.velocity = 0;
 
 	calcPersp();
 	calcView();
+	updateMatrix();
 }
 
 
@@ -15,12 +22,10 @@ Camera::~Camera()
 }
 
 void Camera::calcView() {
-	vec3 camLoc = { 0, 0, 2 };
-	vec3 camRot = { 0, 0, 0 };
 
-	mat3 rotMat = (mat3)yawPitchRoll(camRot.y, camRot.x, camRot.z);
+	mat3 rotMat = (mat3)yawPitchRoll(transform.rotation.y, transform.rotation.x, transform.rotation.z);
 
-	vec3 eye = camLoc;
+	vec3 eye = transform.location;
 	vec3 center = eye + rotMat * vec3(0, 0, -1);
 	vec3 up = rotMat * vec3(0, 1, 0);
 
@@ -40,25 +45,38 @@ void Camera::calcPersp() {
 	persMat = glm::perspective(fovy, aspect, zNear, zFar);
 }
 
-void Camera::update(GLFWwindow *window) {
-	float sens = .005;
+void Camera::updateMatrix() {
+	camMat = persMat * viewMat;
+}
+
+void Camera::update(GLFWwindow *window, map<int, bool> keys) {
+
+	vec3 camVel = vec3(0, 0, 0);
+
+	float sens = .00005;
 	int w = 800, h = 600;
 	double x, y;
 
 	glfwGetCursorPos(window, &x, &y);
 
-	camRot.y -= sens * (x - w * .5f);
-	camRot.x -= sens * (y - h * .5f);
-	camRot.x = glm::clamp(camRot.x, -.5f * 3.14159f, .5f * 3.14159f);
+	transform.rotation.y -= sens * (x - w * .5f);
+	transform.rotation.x -= sens * (y - h * .5f);
+	transform.rotation.x = glm::clamp(transform.rotation.x, -.5f * 3.14159f, .5f * 3.14159f);
 
-	mat3 R = (mat3)glm::yawPitchRoll(camRot.y, camRot.x, camRot.z);
+	mat3 R = (mat3)glm::yawPitchRoll(transform.rotation.y, transform.rotation.x, transform.rotation.z);
 
-	if (Input::keyIsDown[GLFW_KEY_LEFT]) camVel += R * vec3(-1, 0, 0);
-	if (Input::keyIsDown[GLFW_KEY_RIGHT]) camVel += R * vec3(1, 0, 0);
-	if (Input::keyIsDown[GLFW_KEY_UP]) camVel += R * vec3(0, 0, -1);
-	if (Input::keyIsDown[GLFW_KEY_DOWN]) camVel += R * vec3(0, 0, 1);
+    if (keys[GLFW_KEY_LEFT]) camVel += R * vec3(-1, 0, 0);
+	if (keys[GLFW_KEY_RIGHT]) camVel += R * vec3(1, 0, 0);
+	if (keys[GLFW_KEY_UP]) camVel += R * vec3(0, 0, -1);
+	if (keys[GLFW_KEY_DOWN]) camVel += R * vec3(0, 0, 1);
 
-	float speed = 1.f;
+	float speed = .01f;
 
 	if (camVel != vec3()) camVel = glm::normalize(camVel) * speed;
+
+	transform.location += camVel;
+
+	calcPersp();
+	calcView();
+	updateMatrix();
 }

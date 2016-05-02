@@ -11,9 +11,11 @@
 #include <iostream>
 #include <vector>
 
+#include "Structs.h"
 #include "Object.h"
 #include "ShaderManager.h"
 #include "Camera.h"
+#include "InputController.h"
 
 using namespace std;
 using namespace glm;
@@ -39,6 +41,7 @@ public:
 	float deltaTime;
 	mat4 camMat;
 	Camera camera;
+	InputController *input;
 
 private:
 	GLFWwindow* GLFWwindowPtr;

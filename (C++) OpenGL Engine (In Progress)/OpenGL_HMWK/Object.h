@@ -22,9 +22,11 @@ class Object
 {
 public:
 	Object();
+	Object(unsigned int texNum);
 	~Object();
 	void reset();
 	bool collidesWith(const Object &object);
+	unsigned int texID;
 
 	enum CollisionType {
 		colliderless,

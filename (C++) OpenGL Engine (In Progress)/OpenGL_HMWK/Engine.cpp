@@ -15,22 +15,7 @@ void keyCallback(GLFWwindow * window, int key, int scancode, int action, int mod
 Engine::Engine()
 {
 	texIDs = new unsigned int[2];
-
-	for (int i = 0; i < 10; i++) {
-		Object temp;
-
-		temp.transform.location = vec3(-1 + (i / 5.0f), 0 + (i / 10.0f), 0);
-
-		objects.push_back(temp);
-	}
-
-	Object temp;
-	temp.fileName = "textures/character.png";
-	temp.colType = temp.sphere;
-	temp.transform.location = vec3(0, 0, 0);
-	temp.transform.size = vec3(.05, .05, .05);
-	objects.push_back(temp);
-
+	
 	currentTime = 0;
 	previousTime = 0;
 
@@ -59,76 +44,32 @@ bool Engine::init() {
 		return false;
 	}
 
-	swap = true;
-
 	return true;
 }
 
-bool Engine::bufferModel() {
+bool Engine::bufferModels() {
 
-	vector< vec3> locs =
-	{ { 1, 1, 0 },
-	{ -1, 1, 0 },
-	{ -1, -1, 0 },
-	{ 1, -1, 0 }, };
+	if (model.buffer()) return true;
 
-	vector< vec2> uvs =
-	{ { 1, 1},
-	{ 0, 1},
-	{ 0, 0},
-	{ 1, 0}, };
+	return false;
+}
 
-	vector <unsigned int> locInds =
-	{ 0, 1, 2, 0, 2, 3 };
+void Engine::createObjects() {
 
-	vertCount = locInds.size();
+	for (int i = 0; i < 10; i++) {
+		Object temp = Object(texIDs[0]);
 
-	vector<Vertex> vertBufData(vertCount);
-	for (unsigned int i = 0; i < vertCount; i++) {
-		vertBufData[i].loc = locs[locInds[i]];
-		vertBufData[i].uv = uvs[locInds[i]];
+		temp.transform.location = vec3(-1 + (i / 5.0f), 0 + (i / 10.0f), 0);
+
+		objects.push_back(texIDs[1]);
 	}
 
-	GLuint vertBuf;
-
-	glGenVertexArrays(1, &vertArr);
-	glGenBuffers(1, &vertBuf);
-
-	glBindVertexArray(vertArr);
-	glBindBuffer(GL_ARRAY_BUFFER, vertBuf);
-
-	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) *vertCount,
-		&vertBufData[0], GL_STATIC_DRAW);
-
-	glEnableVertexAttribArray(0);
-
-	glVertexAttribPointer(
-		0,
-		3,
-		GL_FLOAT,
-		GL_FALSE,
-		sizeof(Vertex),
-		0);
-
-	glEnableVertexAttribArray(1);
-
-	glVertexAttribPointer(
-		1,
-		2,
-		GL_FLOAT,
-		GL_FALSE,
-		sizeof(Vertex),
-		(void*)sizeof( vec3));
-
-	glBindVertexArray(0);
-
-	glfwSetMouseButtonCallback(GLFWwindowPtr, mouseClick);
-	glfwSetKeyCallback(GLFWwindowPtr, keyCallback);
-
-	glClearColor(0.392f, 0.584f, 0.929f, 1.0f);
-
-
-	return true;
+	Object temp = Object(1);
+	temp.fileName = "textures/character.png";
+	temp.colType = temp.sphere;
+	temp.transform.location = vec3(0, 0, 0);
+	temp.transform.size = vec3(.05, .05, .05);
+	objects.push_back(temp);
 }
 
 bool Engine::gameLoop() {
@@ -143,17 +84,11 @@ bool Engine::gameLoop() {
 
 		glUniformMatrix4fv(3, 1, GL_FALSE, &camera.camMat[0][0]);
 
-		glBindVertexArray(vertArr);
+		//************************
 
-		if(swap == true)
-			glBindTexture(GL_TEXTURE_2D, texIDs[0]);
-		else glBindTexture(GL_TEXTURE_2D, texIDs[1]);
+		model.render(objects);
 
-		for (int i = 0; i < 11; i++) {
-			glUniformMatrix4fv(2, 1, GL_FALSE, &objects[i].transform.tfMatrix[0][0]);
-			glDrawArrays(GL_TRIANGLES, 0, vertCount);
-		}
-		glBindVertexArray(0);
+		//************************
 
 		glfwSwapBuffers(GLFWwindowPtr);
 
@@ -164,10 +99,6 @@ bool Engine::gameLoop() {
 			glfwSetWindowShouldClose(GLFWwindowPtr, true);
 		}
 
-		if (keyIsDown[GLFW_MOUSE_BUTTON_1] && !keyWasDown[GLFW_MOUSE_BUTTON_1]) {
-			if (swap == true) swap = false;
-			else swap = true;
-		}
 		if (keyIsDown[GLFW_MOUSE_BUTTON_2] && !keyWasDown[GLFW_MOUSE_BUTTON_2]) {
 			resetTransforms();
 		}
@@ -225,6 +156,8 @@ bool Engine::loadTextures() {
 
 	FreeImage_Unload(image32Bit);
 	FreeImage_Unload(image32Bit2);
+
+	createObjects();
 
 	return true;
 }

@@ -16,6 +16,7 @@
 #include "ShaderManager.h"
 #include "Camera.h"
 #include "InputController.h"
+#include "Model.h"
 
 using namespace std;
 using namespace glm;
@@ -26,15 +27,16 @@ public:
 	Engine();
 	~Engine();
 	bool init();
-	bool bufferModel();
+	bool bufferModels();
 	bool gameLoop();
 	bool useShaders();
 	bool loadTextures();
 	void update();
 	void resetTransforms();
+	void createObjects();
 	unsigned int* texIDs;
-	bool swap;
 	vector<Object> objects;
+	Model model;
 
 	float currentTime;
 	float previousTime;
@@ -45,8 +47,6 @@ public:
 
 private:
 	GLFWwindow* GLFWwindowPtr;
-	GLuint vertArr;
-	unsigned int vertCount;
 	ShaderManager shaderManager;
 };
 

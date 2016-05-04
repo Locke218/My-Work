@@ -16,6 +16,13 @@ using namespace glm;
 struct Vertex {
 	vec3 loc;
 	vec2 uv;
+	vec3 normal;
+};
+
+struct vertInd {
+	unsigned int locInd;
+	unsigned int uvInd;
+	unsigned int normInd;
 };
 
 struct Transform {

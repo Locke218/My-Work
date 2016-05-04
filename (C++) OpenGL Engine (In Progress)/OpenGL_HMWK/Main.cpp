@@ -15,7 +15,7 @@ int main()
 {
 	Engine engine;
 	if (!engine.init()) return -1;
-	if (!engine.bufferModel()) return -1;
+	if (!engine.bufferModels()) return -1;
 
 	engine.useShaders();
 

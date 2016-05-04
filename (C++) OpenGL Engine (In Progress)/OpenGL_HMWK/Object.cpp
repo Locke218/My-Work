@@ -13,6 +13,24 @@ Object::Object()
 	rigidBody.velocity = 0;
 
 	colType = aabb;
+
+	texID = 0;
+}
+
+Object::Object(unsigned int texNum)
+{
+	fileName = "textures/texture.png";
+	transform.size = vec3(.025, .025, .025);
+	transform.location = vec3(0, 0, 0);
+	transform.rotation = vec3(0, 0, 0);
+
+	rigidBody.force = 0;
+	rigidBody.mass = .1;
+	rigidBody.velocity = 0;
+
+	colType = aabb;
+
+	texID = texNum;
 }
 
 

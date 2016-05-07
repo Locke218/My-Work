@@ -13,7 +13,29 @@ Model::~Model()
 {
 }
 
-bool Model::buffer() {
+bool Model::buffer(string objFile) {
+
+	ifstream inFile;
+	string fileData;
+
+	inFile.open("models/" + objFile);
+
+	if (inFile.is_open()) {
+		cout << "worked" << endl;
+
+		fileData = string((std::istreambuf_iterator<char>(inFile)), std::istreambuf_iterator<char>());
+	}
+	else return false;
+
+	inFile.close();
+
+	istringstream fileData2(fileData);
+	string line;
+
+	while (getline(fileData2, line)) {
+
+	}
+
 	vector< vec3> locs =
 	{ { 1, 1, 0 },
 	{ -1, 1, 0 },
@@ -84,6 +106,7 @@ void Model::render(vector<Object>& objects) {
 		glUniformMatrix4fv(2, 1, GL_FALSE, &objects[i].transform.tfMatrix[0][0]);
 		glDrawArrays(GL_TRIANGLES, 0, vertCount);
 	}
+
 	glBindVertexArray(0);
 
 }

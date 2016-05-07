@@ -10,6 +10,8 @@
 #include <map>
 #include <iostream>
 #include <vector>
+#include <fstream>
+#include <sstream>
 
 #include "Structs.h"
 #include "Object.h"
@@ -22,7 +24,7 @@ class Model
 public:
 	Model();
 	~Model();
-	bool buffer();
+	bool buffer(string objFile);
 	void render(vector<Object>& objects);
 private:
 	GLuint vertArr;

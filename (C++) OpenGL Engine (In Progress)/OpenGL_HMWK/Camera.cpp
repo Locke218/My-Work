@@ -53,7 +53,7 @@ void Camera::update(GLFWwindow *window, map<int, bool> keys) {
 
 	vec3 camVel = vec3(0, 0, 0);
 
-	float sens = .00005;
+	float sens = .0000005;
 	int w = 800, h = 600;
 	double x, y;
 

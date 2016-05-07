@@ -44,12 +44,15 @@ bool Engine::init() {
 		return false;
 	}
 
+	glfwSetMouseButtonCallback(GLFWwindowPtr, mouseClick);
+	glfwSetKeyCallback(GLFWwindowPtr, keyCallback);
+
 	return true;
 }
 
 bool Engine::bufferModels() {
 
-	if (model.buffer()) return true;
+	if (model.buffer("box.obj")) return true;
 
 	return false;
 }
@@ -61,10 +64,10 @@ void Engine::createObjects() {
 
 		temp.transform.location = vec3(-1 + (i / 5.0f), 0 + (i / 10.0f), 0);
 
-		objects.push_back(texIDs[1]);
+		objects.push_back(temp);
 	}
 
-	Object temp = Object(1);
+	Object temp = Object(texIDs[1]);
 	temp.fileName = "textures/character.png";
 	temp.colType = temp.sphere;
 	temp.transform.location = vec3(0, 0, 0);
@@ -101,6 +104,7 @@ bool Engine::gameLoop() {
 
 		if (keyIsDown[GLFW_MOUSE_BUTTON_2] && !keyWasDown[GLFW_MOUSE_BUTTON_2]) {
 			resetTransforms();
+			cout << "yes" << endl;
 		}
 	}
 

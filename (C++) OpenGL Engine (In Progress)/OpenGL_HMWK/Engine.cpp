@@ -44,6 +44,8 @@ bool Engine::init() {
 		return false;
 	}
 
+	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
 	glfwSetMouseButtonCallback(GLFWwindowPtr, mouseClick);
 	glfwSetKeyCallback(GLFWwindowPtr, keyCallback);
 
@@ -52,7 +54,7 @@ bool Engine::init() {
 
 bool Engine::bufferModels() {
 
-	if (model.buffer("box.obj")) return true;
+	if (model.buffer("teapot.obj")) return true;
 
 	return false;
 }

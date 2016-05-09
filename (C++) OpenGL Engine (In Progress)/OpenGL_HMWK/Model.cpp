@@ -14,6 +14,12 @@ Model::~Model()
 }
 
 bool Model::buffer(string objFile) {
+	vector<vec3> locations;
+	vector<vec2> uvs;
+	vector<vec3> normals;
+	vector<vertInd> indices;
+
+	int k = 0;
 
 	ifstream inFile;
 	string fileData;
@@ -33,30 +39,46 @@ bool Model::buffer(string objFile) {
 	string line;
 
 	while (getline(fileData2, line)) {
+		stringstream ss(line);
+		string id;
 
+		ss >> id;
+
+		if (id == "v") {
+			float one, two, three;
+			ss >> one >> two >> three;
+			locations.push_back(vec3(one, two, three));
+		}
+		else if (id == "vt") {
+			float one, two;
+			ss >> one >> two;
+			uvs.push_back(vec2(one, two));
+		}
+		else if (id == "vn") {
+			float one, two, three;
+			ss >> one >> two >> three;
+			normals.push_back(vec3(one, two, three));
+		}
+		else if (id == "f") {
+			unsigned int one, two, three;
+			char slash;
+			for (int i = 0; i < 3; i++) {
+				ss >> one >> slash >> two >> slash >> three;
+				indices.push_back(vertInd(one - 1, two - 1, three - 1));
+				k++;
+
+				cout << k << ": " << one - 1 << " " << two - 1 << " " << three - 1 << " " << endl;
+			}
+		}
 	}
 
-	vector< vec3> locs =
-	{ { 1, 1, 0 },
-	{ -1, 1, 0 },
-	{ -1, -1, 0 },
-	{ 1, -1, 0 }, };
-
-	vector< vec2> uvs =
-	{ { 1, 1 },
-	{ 0, 1 },
-	{ 0, 0 },
-	{ 1, 0 }, };
-
-	vector <unsigned int> locInds =
-	{ 0, 1, 2, 0, 2, 3 };
-
-	vertCount = locInds.size();
+	vertCount = indices.size();
 
 	vector<Vertex> vertBufData(vertCount);
 	for (unsigned int i = 0; i < vertCount; i++) {
-		vertBufData[i].loc = locs[locInds[i]];
-		vertBufData[i].uv = uvs[locInds[i]];
+		vertBufData[i] = { locations[indices[i].locInd],
+							uvs[indices[i].uvInd],
+							normals[indices[i].normInd] };
 	}
 
 	GLuint vertBuf;

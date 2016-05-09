@@ -23,6 +23,12 @@ struct vertInd {
 	unsigned int locInd;
 	unsigned int uvInd;
 	unsigned int normInd;
+
+	vertInd(unsigned int one, unsigned int two, unsigned int three) {
+		locInd = one;
+		uvInd = two;
+		normInd = three;
+	}
 };
 
 struct Transform {

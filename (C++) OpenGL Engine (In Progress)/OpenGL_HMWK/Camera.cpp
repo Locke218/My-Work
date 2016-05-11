@@ -53,7 +53,7 @@ void Camera::update(GLFWwindow *window, map<int, bool> keys) {
 
 	vec3 camVel = vec3(0, 0, 0);
 
-	float sens = .000001;
+	float sens = .00005f;
 	int w = 800, h = 600;
 	double x, y;
 
@@ -70,7 +70,7 @@ void Camera::update(GLFWwindow *window, map<int, bool> keys) {
 	if (keys[GLFW_KEY_UP]) camVel += R * vec3(0, 0, -1);
 	if (keys[GLFW_KEY_DOWN]) camVel += R * vec3(0, 0, 1);
 
-	float speed = .0005f;
+	float speed = .005f;
 
 	if (camVel != vec3()) camVel = glm::normalize(camVel) * speed;
 

@@ -44,7 +44,9 @@ bool Engine::init() {
 		return false;
 	}
 
-	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
+	glEnable(GL_CULL_FACE);
 
 	glfwSetMouseButtonCallback(GLFWwindowPtr, mouseClick);
 	glfwSetKeyCallback(GLFWwindowPtr, keyCallback);
@@ -54,7 +56,7 @@ bool Engine::init() {
 
 bool Engine::bufferModels() {
 
-	if (model.buffer("teapot.obj")) return true;
+	if (model.buffer("box.obj")) return true;
 
 	return false;
 }
@@ -128,7 +130,7 @@ bool Engine::useShaders() {
 bool Engine::loadTextures() {
 	//Loading textures
 	FIBITMAP* image = FreeImage_Load(FreeImage_GetFileType("textures/texture.png", 0), "textures/texture.png");
-	FIBITMAP* image2 = FreeImage_Load(FreeImage_GetFileType("textures/texture2.png", 0), "textures/texture2.png");
+	FIBITMAP* image2 = FreeImage_Load(FreeImage_GetFileType("textures/crate.png", 0), "textures/crate.png");
 
 	//if (image == nullptr) cout << "Broken";
 	//else cout << "working";

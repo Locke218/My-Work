@@ -32,7 +32,7 @@ bool ShaderManager::loadShaders(const char* vertexFile, const char* fragmentFile
 		GLint length = 0;
 		glGetProgramiv(program, GL_INFO_LOG_LENGTH, &length);
 
-		GLchar* logOut;
+		GLchar* logOut = new GLchar[length];
 		glGetProgramInfoLog(program, length, 0, logOut);
 
 		cout << 2 << endl;

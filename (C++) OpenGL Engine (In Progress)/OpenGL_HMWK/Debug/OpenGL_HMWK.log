@@ -1,7 +1,7 @@
 ﻿  Engine.cpp
-c:\users\zane\documents\sourcetree\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(8): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
-c:\users\zane\documents\sourcetree\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(12): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
-c:\users\zane\documents\sourcetree\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(82): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\zane\documents\sourcetree\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(173): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\zane\documents\sourcetree\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(179): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  OpenGL_HMWK.vcxproj -> C:\Users\Zane\Documents\SourceTree\My-Work\(C++) OpenGL Engine (In Progress)\Debug\OpenGL_HMWK.exe
+\\banner.main.ad.rit.edu\students\ztd9457\igmprofile\documents\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(8): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
+\\banner.main.ad.rit.edu\students\ztd9457\igmprofile\documents\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(12): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
+\\banner.main.ad.rit.edu\students\ztd9457\igmprofile\documents\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(84): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+\\banner.main.ad.rit.edu\students\ztd9457\igmprofile\documents\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(175): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+\\banner.main.ad.rit.edu\students\ztd9457\igmprofile\documents\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(181): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  OpenGL_HMWK.vcxproj -> \\banner.main.ad.rit.edu\students\ztd9457\IGMProfile\Documents\My-Work\(C++) OpenGL Engine (In Progress)\Debug\OpenGL_HMWK.exe

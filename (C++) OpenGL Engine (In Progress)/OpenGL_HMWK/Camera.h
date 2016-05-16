@@ -26,7 +26,8 @@ public:
 	void calcView();
 	void calcPersp();
 	void updateMatrix();
-	void update(GLFWwindow *window, map<int, bool> keys);
+	void update(GLFWwindow *window, map<int, bool> keys, float rate);
+	float animRate(float input, float rate);
 
 	mat4 persMat;
 	mat4 viewMat;

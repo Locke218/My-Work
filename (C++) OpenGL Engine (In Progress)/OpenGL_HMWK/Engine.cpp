@@ -85,7 +85,6 @@ bool Engine::gameLoop() {
 
 	while (!glfwWindowShouldClose(GLFWwindowPtr))
 	{
-		cout << camera.transform.rotation.x << " " << camera.transform.rotation.y << " " << camera.transform.rotation.z << endl;
 
 		glClear(GL_COLOR_BUFFER_BIT);
 
@@ -186,13 +185,13 @@ void Engine::update() {
 	for (int i = 0; i < 11; i++) {
 
 		if (i < 10) {
-			objects[i].rigidBody.force = objects[i].rigidBody.mass * .1;
+			objects[i].rigidBody.force = objects[i].rigidBody.mass * animRate(1);
 			objects[i].rigidBody.velocity += (objects[i].rigidBody.force * deltaTime) / objects[i].rigidBody.mass;
 			objects[i].transform.location.y -= objects[i].rigidBody.velocity;
 			if (objects[i].transform.location.y <= -1) objects[i].transform.location.y = -1;
 		}
 		else {
-			objects[i].transform.rotation.x += .001;
+			objects[i].transform.rotation.x += animRate(.5);
 		}
 
 		Transform tForm = objects[i].transform;
@@ -205,7 +204,7 @@ void Engine::update() {
 		}
 	}
 
-    camera.update(GLFWwindowPtr, keyIsDown);
+    camera.update(GLFWwindowPtr, keyIsDown, 1/(currentTime - previousTime));
 
 }
 
@@ -214,4 +213,10 @@ void Engine::resetTransforms() {
 		objects[i].reset();
 		objects[i].transform.location = vec3(-1 + (i / 5.), 0 + (i / 10.), 0);
 	}
+}
+
+float Engine::animRate(float input) {
+	float rate = 1 / (currentTime - previousTime);
+	cout << rate << endl;
+	return (input / rate);
 }

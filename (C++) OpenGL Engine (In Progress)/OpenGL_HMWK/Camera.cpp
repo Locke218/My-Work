@@ -49,20 +49,20 @@ void Camera::updateMatrix() {
 	camMat = persMat * viewMat;
 }
 
-void Camera::update(GLFWwindow *window, map<int, bool> keys) {
+void Camera::update(GLFWwindow *window, map<int, bool> keys, float rate) {
 
 	if (keys[GLFW_MOUSE_BUTTON_RIGHT]) {
 
 		vec3 camVel = vec3(0, 0, 0);
 
-		float sens = .000001f;
+		float sens = .001f;
 		int w = 800, h = 600;
 		double x, y;
 
 		glfwGetCursorPos(window, &x, &y);
 
-		transform.rotation.y -= sens * (x - w * .5f);
-		transform.rotation.x -= sens * (y - h * .5f);
+		transform.rotation.y -= animRate(sens * (x - w * .5f), rate);
+		transform.rotation.x -= animRate(sens * (y - h * .5f), rate);
 		transform.rotation.x = glm::clamp(transform.rotation.x, -.5f * 3.14159f, .5f * 3.14159f);
 
 		mat3 R = (mat3)glm::yawPitchRoll(transform.rotation.y, transform.rotation.x, transform.rotation.z);
@@ -72,9 +72,9 @@ void Camera::update(GLFWwindow *window, map<int, bool> keys) {
 		if (keys[GLFW_KEY_UP]) camVel += R * vec3(0, 0, -1);
 		if (keys[GLFW_KEY_DOWN]) camVel += R * vec3(0, 0, 1);
 
-		float speed = .0005f;
+		float speed = .10f;
 
-		if (camVel != vec3()) camVel = glm::normalize(camVel) * speed;
+		if (camVel != vec3()) camVel = glm::normalize(camVel) * animRate(speed, rate);
 
 		transform.location += camVel;
 	}
@@ -82,4 +82,8 @@ void Camera::update(GLFWwindow *window, map<int, bool> keys) {
 	calcPersp();
 	calcView();
 	updateMatrix();
+}
+
+float Camera::animRate(float input, float rate) {
+	return (input / rate);
 }

@@ -34,6 +34,7 @@ public:
 	void update();
 	void resetTransforms();
 	void createObjects();
+	float animRate(float input);
 	unsigned int* texIDs;
 	vector<Object> objects;
 	Model model;

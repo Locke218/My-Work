@@ -3,8 +3,8 @@
 Camera::Camera()
 {
 
-	transform.location = vec3(0,0,2);
-	transform.rotation = vec3( 0, 0, 0 );
+	transform.location = vec3( .2921, -.0789, -.0096 );
+	transform.rotation = vec3( 0.1668, 1.5582, 0);
 	transform.size = { .25, .25, .25 };
 
 	rigidbody.force = 0;
@@ -51,30 +51,33 @@ void Camera::updateMatrix() {
 
 void Camera::update(GLFWwindow *window, map<int, bool> keys) {
 
-	vec3 camVel = vec3(0, 0, 0);
+	if (keys[GLFW_MOUSE_BUTTON_RIGHT]) {
 
-	float sens = .00005f;
-	int w = 800, h = 600;
-	double x, y;
+		vec3 camVel = vec3(0, 0, 0);
 
-	glfwGetCursorPos(window, &x, &y);
+		float sens = .000001f;
+		int w = 800, h = 600;
+		double x, y;
 
-	transform.rotation.y -= sens * (x - w * .5f);
-	transform.rotation.x -= sens * (y - h * .5f);
-	transform.rotation.x = glm::clamp(transform.rotation.x, -.5f * 3.14159f, .5f * 3.14159f);
+		glfwGetCursorPos(window, &x, &y);
 
-	mat3 R = (mat3)glm::yawPitchRoll(transform.rotation.y, transform.rotation.x, transform.rotation.z);
+		transform.rotation.y -= sens * (x - w * .5f);
+		transform.rotation.x -= sens * (y - h * .5f);
+		transform.rotation.x = glm::clamp(transform.rotation.x, -.5f * 3.14159f, .5f * 3.14159f);
 
-    if (keys[GLFW_KEY_LEFT]) camVel += R * vec3(-1, 0, 0);
-	if (keys[GLFW_KEY_RIGHT]) camVel += R * vec3(1, 0, 0);
-	if (keys[GLFW_KEY_UP]) camVel += R * vec3(0, 0, -1);
-	if (keys[GLFW_KEY_DOWN]) camVel += R * vec3(0, 0, 1);
+		mat3 R = (mat3)glm::yawPitchRoll(transform.rotation.y, transform.rotation.x, transform.rotation.z);
 
-	float speed = .005f;
+		if (keys[GLFW_KEY_LEFT]) camVel += R * vec3(-1, 0, 0);
+		if (keys[GLFW_KEY_RIGHT]) camVel += R * vec3(1, 0, 0);
+		if (keys[GLFW_KEY_UP]) camVel += R * vec3(0, 0, -1);
+		if (keys[GLFW_KEY_DOWN]) camVel += R * vec3(0, 0, 1);
 
-	if (camVel != vec3()) camVel = glm::normalize(camVel) * speed;
+		float speed = .0005f;
 
-	transform.location += camVel;
+		if (camVel != vec3()) camVel = glm::normalize(camVel) * speed;
+
+		transform.location += camVel;
+	}
 
 	calcPersp();
 	calcView();

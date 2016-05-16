@@ -85,11 +85,18 @@ bool Engine::gameLoop() {
 
 	while (!glfwWindowShouldClose(GLFWwindowPtr))
 	{
+		cout << camera.transform.rotation.x << " " << camera.transform.rotation.y << " " << camera.transform.rotation.z << endl;
+
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		update();
 
-		glUniformMatrix4fv(3, 1, GL_FALSE, &camera.camMat[0][0]);
+		glUniformMatrix4fv(4, 1, GL_FALSE, &camera.camMat[0][0]);
+
+		vec3 lightLocation = vec3(0, 1, 2);
+
+		glUniform3fvARB(5, 1, &lightLocation[0]);
+		glUniform3f(6, camera.transform.location.x, camera.transform.location.y, camera.transform.location.x);
 
 		//************************
 
@@ -171,6 +178,7 @@ bool Engine::loadTextures() {
 }
 
 void Engine::update() {
+	//cout << currentTime - previousTime << endl;
 	previousTime = currentTime;
 	currentTime = glfwGetTime();
 	deltaTime = currentTime - previousTime;
@@ -182,6 +190,9 @@ void Engine::update() {
 			objects[i].rigidBody.velocity += (objects[i].rigidBody.force * deltaTime) / objects[i].rigidBody.mass;
 			objects[i].transform.location.y -= objects[i].rigidBody.velocity;
 			if (objects[i].transform.location.y <= -1) objects[i].transform.location.y = -1;
+		}
+		else {
+			objects[i].transform.rotation.x += .001;
 		}
 
 		Transform tForm = objects[i].transform;

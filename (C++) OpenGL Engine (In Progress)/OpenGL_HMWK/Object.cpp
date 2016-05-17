@@ -4,7 +4,7 @@
 Object::Object()
 {
 	fileName = "textures/texture.png";
-	transform.size = vec3(.025, .025, .025);
+	transform.size = vec3(.05, .05, .05);
 	transform.location = vec3(0, 0, 0);
 	transform.rotation = vec3(0, 0, 0);
 
@@ -20,7 +20,7 @@ Object::Object()
 Object::Object(unsigned int texNum)
 {
 	fileName = "textures/texture.png";
-	transform.size = vec3(.025, .025, .025);
+	transform.size = vec3(.1, .01, .1);
 	transform.location = vec3(0, 0, 0);
 	transform.rotation = vec3(0, 0, 0);
 

@@ -51,7 +51,7 @@ void Camera::updateMatrix() {
 
 void Camera::update(GLFWwindow *window, map<int, bool> keys, float rate) {
 
-	if (keys[GLFW_MOUSE_BUTTON_RIGHT]) {
+	if (keys[GLFW_MOUSE_BUTTON_LEFT]) {
 
 		vec3 camVel = vec3(0, 0, 0);
 

@@ -131,7 +131,7 @@ void Model::render(vector<Object>& objects) {
 
 	glBindVertexArray(vertArr);
 
-	for (int i = 0; i < 11; i++) {
+	for (int i = 0; i < objects.size(); i++) {
 		glBindTexture(GL_TEXTURE_2D, objects[i].texID);
 		glUniformMatrix4fv(3, 1, GL_FALSE, &objects[i].transform.tfMatrix[0][0]);
 		glDrawArrays(GL_TRIANGLES, 0, vertCount);

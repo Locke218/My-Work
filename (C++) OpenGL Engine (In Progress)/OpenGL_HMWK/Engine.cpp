@@ -63,14 +63,6 @@ bool Engine::bufferModels() {
 
 void Engine::createObjects() {
 
-	for (int i = 0; i < 10; i++) {
-			Object temp = Object(texIDs[0]);
-
-			temp.transform.location = vec3(-1 + (i / 5.0f), 0 + (i / 10.0f), 0);
-
-			objects.push_back(temp);
-	}
-
 	Object temp = Object(texIDs[1]);
 	temp.fileName = "textures/character.png";
 	temp.colType = temp.sphere;
@@ -182,9 +174,9 @@ void Engine::update() {
 	currentTime = glfwGetTime();
 	deltaTime = currentTime - previousTime;
 
-	for (int i = 0; i < 11; i++) {
+	for (int i = 0; i < 101; i++) {
 
-		if (i < 10) {
+		if (i < 100) {
 			objects[i].rigidBody.force = objects[i].rigidBody.mass * animRate(1);
 			objects[i].rigidBody.velocity += (objects[i].rigidBody.force * deltaTime) / objects[i].rigidBody.mass;
 			objects[i].transform.location.y -= objects[i].rigidBody.velocity;
@@ -198,8 +190,8 @@ void Engine::update() {
 		objects[i].transform.tfMatrix = translate(tForm.location) * yawPitchRoll(tForm.rotation.x, tForm.rotation.y, tForm.rotation.z) * scale(tForm.size);
 	}
 
-	for (int i = 0; i < 10; i++) {
-		if (objects[i].collidesWith(objects[10])) {
+	for (int i = 0; i < 100; i++) {
+		if (objects[i].collidesWith(objects[100])) {
 			cout << " " << i << ": Collision" << endl;
 		}
 	}
@@ -210,8 +202,10 @@ void Engine::update() {
 
 void Engine::resetTransforms() {
 	for (int i = 0; i < 10; i++) {
-		objects[i].reset();
-		objects[i].transform.location = vec3(-1 + (i / 5.), 0 + (i / 10.), 0);
+		for (int j = 0; j < 10; j++) {
+			objects[i*10 + j].reset();
+			objects[i * 10 + j].transform.location = vec3(-1 + (i / 5.), 0, -1 + (j / 5.));
+		}
 	}
 }
 

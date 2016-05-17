@@ -64,11 +64,11 @@ bool Engine::bufferModels() {
 void Engine::createObjects() {
 
 	for (int i = 0; i < 10; i++) {
-		Object temp = Object(texIDs[0]);
+			Object temp = Object(texIDs[0]);
 
-		temp.transform.location = vec3(-1 + (i / 5.0f), 0 + (i / 10.0f), 0);
+			temp.transform.location = vec3(-1 + (i / 5.0f), 0 + (i / 10.0f), 0);
 
-		objects.push_back(temp);
+			objects.push_back(temp);
 	}
 
 	Object temp = Object(texIDs[1]);
@@ -217,6 +217,6 @@ void Engine::resetTransforms() {
 
 float Engine::animRate(float input) {
 	float rate = 1 / (currentTime - previousTime);
-	cout << rate << endl;
+	//cout << rate << endl;
 	return (input / rate);
 }

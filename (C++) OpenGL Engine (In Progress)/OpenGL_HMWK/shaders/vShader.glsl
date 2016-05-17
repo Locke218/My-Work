@@ -5,8 +5,8 @@ layout (location = 1) in vec2 uv;
 layout (location = 2) in vec3 normal;
 layout (location = 3) uniform mat4 transform;
 layout (location = 4) uniform mat4 cameraMat;
-layout (location = 5) in vec3 lightLocation;
-layout (location = 6) in vec3 camLocation;
+layout (location = 5) uniform vec3 lightLocation;
+layout (location = 6) uniform vec3 camLocation;
 
 
 out vec2 fragUV;
@@ -22,7 +22,7 @@ void main()
 	fragLoc = vec3(transform * vec4(position, 1));
 	fragNorm = vec3(transpose(inverse(transform)) * vec4(normal, 0.0));
 
-	lightLoc = vec3(0, 1, 2);
+	lightLoc = lightLocation;
 	camLoc = camLocation;
 
 	gl_Position = cameraMat * transform * vec4(position, 1);

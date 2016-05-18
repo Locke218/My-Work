@@ -42,6 +42,7 @@ public:
 	vector<Object> platforms;
 	vector<Object> menu;
 	vector<Object> pause;
+	vector<Object> enemies;
 	Model model;
 
 	float currentTime;

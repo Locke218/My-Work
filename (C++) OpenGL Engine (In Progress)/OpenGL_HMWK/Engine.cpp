@@ -82,10 +82,31 @@ void Engine::createObjects() {
 	Object temp = Object(texIDs[2]);
 	temp.fileName = "textures/character.png";
 	temp.colType = temp.aabb;
-	temp.transform.location = vec3(-1, -.5, -.2);
+	temp.transform.location = vec3(-1, -.2, -.2);
 	temp.transform.size = vec3(.16, .16, .16);
 	temp.gravityEnable = true;
 	objects.push_back(temp);
+
+	temp = Object(texIDs[1]);
+	temp.fileName = "textures/character.png";
+	temp.colType = temp.aabb;
+	temp.transform.location = vec3(-2, -.8, 0);
+	temp.transform.size = vec3(1, .25, .1);
+	platforms.push_back(temp);
+
+	temp = Object(texIDs[1]);
+	temp.fileName = "textures/character.png";
+	temp.colType = temp.aabb;
+	temp.transform.location = vec3(-2, .8, 0);
+	temp.transform.size = vec3(1, .2, .1);
+	platforms.push_back(temp);
+
+	temp = Object(texIDs[3]);
+	temp.fileName = "textures/character.png";
+	temp.colType = temp.aabb;
+	temp.transform.location = vec3(-2, .2, -.1);
+	temp.transform.size = vec3(1, 1, .1);
+	platforms.push_back(temp);
 
 	temp = Object(texIDs[1]);
 	temp.fileName = "textures/character.png";
@@ -149,6 +170,13 @@ void Engine::addPlatform() {
 	temp.transform.location = vec3(platforms[platforms.size() - 2].transform.location.x, platforms[platforms.size() - 2].transform.location.y + 1, -.1);
 	temp.transform.size = vec3(length, 1, .1);
 	platforms.push_back(temp);
+
+	temp = Object(texIDs[6]);
+	temp.fileName = "textures/character.png";
+	temp.colType = temp.aabb;
+	temp.transform.location = vec3(platforms[platforms.size() - 3].transform.location.x, platforms[platforms.size() - 3].transform.location.y + .4, 0);
+	temp.transform.size = vec3(.07, .12, .16);
+	enemies.push_back(temp);
 }
 
 void Engine::checkPlatforms() {
@@ -185,6 +213,7 @@ bool Engine::gameLoop() {
 
 		model.render(platforms, 2);
 		model.render(objects, 1);
+		model.render(enemies, 3);
 
 		if (gameState == 0) {
 			model.render(menu, 3);
@@ -278,6 +307,7 @@ bool Engine::loadTextures() {
 	FIBITMAP* image4 = FreeImage_Load(FreeImage_GetFileType("textures/blue.png", 0), "textures/blue.png");
 	FIBITMAP* image5 = FreeImage_Load(FreeImage_GetFileType("textures/intro.png", 0), "textures/intro.png");
 	FIBITMAP* image6 = FreeImage_Load(FreeImage_GetFileType("textures/pause.png", 0), "textures/pause.png");
+	FIBITMAP* image7 = FreeImage_Load(FreeImage_GetFileType("textures/skeleton.png", 0), "textures/skeleton.png");
 
 	//if (image == nullptr) cout << "Broken";
 	//else cout << "working";
@@ -288,6 +318,7 @@ bool Engine::loadTextures() {
 	FIBITMAP* image32Bit4 = FreeImage_ConvertTo32Bits(image4);
 	FIBITMAP* image32Bit5 = FreeImage_ConvertTo32Bits(image5);
 	FIBITMAP* image32Bit6 = FreeImage_ConvertTo32Bits(image6);
+	FIBITMAP* image32Bit7 = FreeImage_ConvertTo32Bits(image7);
 
 	FreeImage_Unload(image);
 	FreeImage_Unload(image2);
@@ -295,8 +326,9 @@ bool Engine::loadTextures() {
 	FreeImage_Unload(image4);
 	FreeImage_Unload(image5);
 	FreeImage_Unload(image6);
+	FreeImage_Unload(image7);
 
-	glGenTextures(5, texIDs);
+	glGenTextures(6, texIDs);
 	glBindTexture(GL_TEXTURE_2D, texIDs[0]);
 
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -357,12 +389,23 @@ bool Engine::loadTextures() {
 
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_SRGB_ALPHA, width6, height6, 0, GL_BGRA, GL_UNSIGNED_BYTE, (void*)address6);
 
+	glBindTexture(GL_TEXTURE_2D, texIDs[6]);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+
+	int width7 = FreeImage_GetWidth(image32Bit7);
+	int height7 = FreeImage_GetHeight(image32Bit7);
+	BYTE* address7 = FreeImage_GetBits(image32Bit7);
+
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_SRGB_ALPHA, width7, height7, 0, GL_BGRA, GL_UNSIGNED_BYTE, (void*)address7);
+
 	FreeImage_Unload(image32Bit);
 	FreeImage_Unload(image32Bit2);
 	FreeImage_Unload(image32Bit3);
 	FreeImage_Unload(image32Bit4);
 	FreeImage_Unload(image32Bit5);
 	FreeImage_Unload(image32Bit6);
+	FreeImage_Unload(image32Bit7);
 
 	createObjects();
 
@@ -393,12 +436,22 @@ void Engine::update() {
 	objects[0].falling = true;
 
 	for (int i = 0; i < platforms.size(); i++) {
-		if (i%3 == 0 && platforms[i].collidesWith(objects[0])) {
+		if (i % 3 == 0 && platforms[i].collidesWith(objects[0])) {
 			objects[0].falling = false;
 		}
 
 		Transform tForm = platforms[i].transform;
 		platforms[i].transform.tfMatrix = translate(tForm.location) * yawPitchRoll(tForm.rotation.x, tForm.rotation.y, tForm.rotation.z) * scale(tForm.size);
+
+	}
+
+	for (int i = 0; i < enemies.size(); i++) {
+		if (enemies[i].collidesWith(objects[0])) {
+			cout << "Hit";
+		}
+
+		Transform tForm = enemies[i].transform;
+		enemies[i].transform.tfMatrix = translate(tForm.location) * yawPitchRoll(tForm.rotation.x, tForm.rotation.y, tForm.rotation.z) * scale(tForm.size);
 
 	}
 

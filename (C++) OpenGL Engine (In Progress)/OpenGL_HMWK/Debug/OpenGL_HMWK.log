@@ -9,10 +9,10 @@ c:\users\zane\documents\sourcetree\my-work\(c++) opengl engine (in progress)\ope
 c:\users\zane\documents\sourcetree\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(271): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 c:\users\zane\documents\sourcetree\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(272): warning C4305: '=': truncation from 'double' to 'float'
 c:\users\zane\documents\sourcetree\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(276): warning C4305: '=': truncation from 'double' to 'float'
-c:\users\zane\documents\sourcetree\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(418): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\zane\documents\sourcetree\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(421): warning C4018: '<': signed/unsigned mismatch
-c:\users\zane\documents\sourcetree\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(438): warning C4018: '<': signed/unsigned mismatch
-c:\users\zane\documents\sourcetree\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(448): warning C4018: '<': signed/unsigned mismatch
-c:\users\zane\documents\sourcetree\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(460): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\zane\documents\sourcetree\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(472): warning C4305: '+=': truncation from 'double' to 'float'
+c:\users\zane\documents\sourcetree\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(439): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\zane\documents\sourcetree\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(442): warning C4018: '<': signed/unsigned mismatch
+c:\users\zane\documents\sourcetree\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(459): warning C4018: '<': signed/unsigned mismatch
+c:\users\zane\documents\sourcetree\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(469): warning C4018: '<': signed/unsigned mismatch
+c:\users\zane\documents\sourcetree\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(481): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\zane\documents\sourcetree\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(493): warning C4305: '+=': truncation from 'double' to 'float'
   OpenGL_HMWK.vcxproj -> C:\Users\Zane\Documents\SourceTree\My-Work\(C++) OpenGL Engine (In Progress)\Debug\OpenGL_HMWK.exe

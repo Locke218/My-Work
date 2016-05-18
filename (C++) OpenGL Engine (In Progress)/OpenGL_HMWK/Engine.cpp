@@ -283,8 +283,29 @@ bool Engine::gameLoop() {
 			checkPlatforms();
 		}
 	}
+	/*
+	while (platforms.size() > 0) {
+		platforms.erase(platforms.begin());
+	}
 
-	glDeleteTextures(5, texIDs);
+	while (objects.size() > 0) {
+		objects.erase(platforms.begin());
+	}
+
+	while (enemies.size() > 0) {
+		enemies.erase(platforms.begin());
+	}
+
+	while (menu.size() > 0) {
+		menu.erase(platforms.begin());
+	}
+
+	while (pause.size() > 0) {
+		pause.erase(platforms.begin());
+	}
+	*/
+
+	glDeleteTextures(1, texIDs);
 	glBindTexture(GL_TEXTURE_2D, 0);
 	glfwTerminate();
 

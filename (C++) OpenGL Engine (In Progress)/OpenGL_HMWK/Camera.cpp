@@ -3,8 +3,8 @@
 Camera::Camera()
 {
 
-	transform.location = vec3( .2921, -.0789, -.0096 );
-	transform.rotation = vec3( 0.1668, 1.5582, 0);
+	transform.location = vec3( 0, -.50, 1.3);
+	transform.rotation = vec3( 0, 0, 0 );
 	transform.size = { .25, .25, .25 };
 
 	rigidbody.force = 0;

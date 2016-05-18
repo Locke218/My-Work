@@ -34,9 +34,14 @@ public:
 	void update();
 	void resetTransforms();
 	void createObjects();
+	void addPlatform();
+	void checkPlatforms();
 	float animRate(float input);
 	unsigned int* texIDs;
 	vector<Object> objects;
+	vector<Object> platforms;
+	vector<Object> menu;
+	vector<Object> pause;
 	Model model;
 
 	float currentTime;
@@ -45,6 +50,10 @@ public:
 	mat4 camMat;
 	Camera camera;
 	InputController *input;
+	int spacePress;
+	float charAnim;
+
+	float gameState;
 
 private:
 	GLFWwindow* GLFWwindowPtr;

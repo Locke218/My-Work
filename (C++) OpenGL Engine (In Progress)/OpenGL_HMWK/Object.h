@@ -37,5 +37,7 @@ public:
 	Transform transform;
 	string fileName;
 	RigidBody rigidBody;
+	bool gravityEnable;
+	bool falling;
 };
 

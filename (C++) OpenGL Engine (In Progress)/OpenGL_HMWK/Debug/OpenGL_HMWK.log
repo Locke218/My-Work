@@ -1,2 +1,17 @@
-﻿LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+﻿  Engine.cpp
+c:\users\magicuser\documents\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(8): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
+c:\users\magicuser\documents\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(12): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
+c:\users\magicuser\documents\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(130): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\magicuser\documents\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(165): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\magicuser\documents\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(214): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\magicuser\documents\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(233): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\magicuser\documents\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(237): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\magicuser\documents\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(242): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\magicuser\documents\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(243): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\magicuser\documents\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(247): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\magicuser\documents\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(375): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\magicuser\documents\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(378): warning C4018: '<': signed/unsigned mismatch
+c:\users\magicuser\documents\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(395): warning C4018: '<': signed/unsigned mismatch
+c:\users\magicuser\documents\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(407): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\magicuser\documents\my-work\(c++) opengl engine (in progress)\opengl_hmwk\engine.cpp(419): warning C4305: '+=': truncation from 'double' to 'float'
   OpenGL_HMWK.vcxproj -> C:\Users\MagicUser\Documents\My-Work\(C++) OpenGL Engine (In Progress)\Debug\OpenGL_HMWK.exe

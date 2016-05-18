@@ -25,9 +25,11 @@ public:
 	Model();
 	~Model();
 	bool buffer(string objFile);
-	void render(vector<Object>& objects);
+	void render(vector<Object>& objects, int numOpt);
 private:
 	GLuint vertArr;
+	GLuint vertArr2;
 	unsigned int vertCount;
+	unsigned int vertCount2;
 };
 

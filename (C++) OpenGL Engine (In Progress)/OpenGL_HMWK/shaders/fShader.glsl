@@ -17,9 +17,9 @@ void main()
 
 	vec3 norm = normalize(vec3(fragNorm));
 
-	float ambient = .3;
-	float diffuse = .6 * max(dot(norm, l ), 0.0);
-	float specular = .6 * pow(max(dot(norm, h), 0.0), 32);
+	float ambient = .01;
+	float diffuse = .9 * max(dot(norm, l ), .1);
+	float specular = .6 * pow(max(dot(norm, h), 0.3), 32);
 	float brightness = ambient + diffuse + specular;
 
 	vec4 texColor = texture(myTexture, fragUV);

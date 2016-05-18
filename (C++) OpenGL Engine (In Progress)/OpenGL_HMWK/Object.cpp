@@ -14,13 +14,16 @@ Object::Object()
 
 	colType = aabb;
 
+	gravityEnable = false;
+	falling = true;
+
 	texID = 0;
 }
 
 Object::Object(unsigned int texNum)
 {
 	fileName = "textures/texture.png";
-	transform.size = vec3(.1, .01, .1);
+	transform.size = vec3(.025, .025, .025);
 	transform.location = vec3(0, 0, 0);
 	transform.rotation = vec3(0, 0, 0);
 
@@ -29,6 +32,9 @@ Object::Object(unsigned int texNum)
 	rigidBody.velocity = 0;
 
 	colType = aabb;
+
+	gravityEnable = false;
+	falling = true;
 
 	texID = texNum;
 }
@@ -98,6 +104,6 @@ bool Object::collidesWith(const Object &object) {
 		}
 	}
 
-	cout << "true" << endl;
+	//cout << "true" << endl;
 	return true;
 }

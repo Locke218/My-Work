@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="css/style.css">
+ 	<link href='https://fonts.googleapis.com/css?family=Coming+Soon' rel='stylesheet' type='text/css'>
+ 	<title>yelpLife&trade;</title>
+ 	
+	<!-- Import jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRgz1oAP5wU8xw2HHjUxA_QVlQRv6WYmI&callback=init" async defer></script>
+       
+	<script src="js/myjs.js"></script>
+  
+</head>
+<body>
+
+<div id="mapDiv"></div>
+
+<div id="right">
+	
+	<div id="top">
+		<div class="parameters">
+			<input id="searchterm" type="text" maxlength="20" autofocus value="Rochester" />
+			<input id="keyword" type="text" maxlength="20" autofocus value="Food" />
+		</div>
+		<div class="parameters">
+			<button type="button" id="search">Search</button>
+			<button type="button" id="clear">Clear Map</button>
+		</div>
+
+	</div>
+
+	<h2>Businesses</h2>
+
+	<div id="resultTitle">
+		<p> Search by location and topic for a list of venues! </p>
+	</div>
+
+	<div id="results">
+
+		<div id="dynamicContent">
+			<p></p>
+		</div>
+	</div>
+</div>
+
+<div id="right2">
+	
+	<div id="top">
+		<div class="parameters">
+			<input id="searchterm" type="text" maxlength="20" autofocus value="Rochester" />
+			<input id="keyword" type="text" maxlength="20" autofocus value="Food" /> 
+		</div>
+		<div class="parameters">
+			<button type="button" id="list">Back to List!</button>
+			<button type="button" id="directions">Want Directions?</button>
+		</div>
+		<div class="parameters" id="addressInput">
+			<input id="street" type="text" maxlength="40" autofocus value="1 Lomb Memorial Dr" />
+			<input id="city" type="text" maxlength="40" autofocus value="Rochester" /> 
+			<input id="state" type="text" maxlength="40" autofocus value="NY" /> 
+		</div>
+		
+	</div>
+	<div id="localDetails">
+		<a id="titleLink">
+		<h2 id="localName">Businesses</h2>
+		</a>
+		
+		<div id="localInfo">
+			<p id="localPhone">No data yet!</p>
+			<p id="localAddress">No data yet!</p>
+			<p id="localRating">No data yet!</p>
+			
+			<div id="snippet">
+				<img id="localSnippetImg"/><br/>
+				<img id="localSnippetRating"/>
+				<div id="localSnippet">No data yet!</div>
+			</div>
+		</div>
+	</div>
+	<div id="categoryDiv">
+		<h1>Categories</h1>
+		<h3>Try searching by a related category</h3>
+		<div id="cats">
+		</div>
+	</div>
+</div>
+ 
+
+</body>
+</html>

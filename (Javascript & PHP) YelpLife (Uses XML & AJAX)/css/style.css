@@ -1,0 +1,253 @@
+/*
+	CSS BY ZANE DRAPER (SOME LEFT OVER CODE FROM PROFESSOR)
+*/
+
+*{
+	font-family: 'Coming Soon', sans-serif;
+}
+body{
+	background-color:rgb(233, 233, 233);
+}
+h2{
+	width: 98%;
+	text-align: center;
+}
+h3{
+	margin-top: 1px;
+	margin-bottom: 0px;
+	padding-top: 1px;
+	padding-bottom: 0px;
+	font-size: 20pt;
+	overflow: hidden;
+}
+input, button{
+	width:49%;
+}
+#addressInput input{
+	width: 32%;
+}
+p{
+	width:100%;
+	overflow:hidden;
+}
+img{
+	border:1px solid black;
+}
+
+#mapDiv{
+	margin:0;
+	padding:0;
+	width: 50%;
+	height: 900px;
+	border: 1px solid black;
+	float:left;
+}
+
+
+/*
+	VARIABLES FOR THE VENUE LISTS PAGE
+*/
+
+#right{
+	width: 45%;
+	height: 880px;
+	float:left;
+	padding: 20px;
+}
+#right2{
+	width: 45%;
+	height: 880px;
+	float:left;
+	padding: 20px;
+	display: none;
+}
+#results{
+	width: 98%;
+	height:660px;
+	float:left;
+	overflow: auto;
+}
+#localInfo{
+	width: 98%;
+	height:660px;
+	float:left;
+	overflow:none;
+}
+.parameters{
+	width:99%;
+	height: 30pt;
+	float:left;
+}
+#addressInput{
+	display: none;
+	margin-top:4px;
+	height: 30pt;
+}
+#resultTitle p{
+	width:100%;
+	text-align: center;
+}
+.category{
+	background-color:rgb(255, 255, 255);
+	border-radius:4px;
+	border:1px solid #9b9b9b;
+	box-shadow: 5px 5px 5px #a7a7a7;
+	margin-bottom: 15px;
+}
+.category .details{
+	width:75%;
+	height: 110px;
+}
+.category p{
+	width: 60%;
+	margin-top: 1px;
+	margin-bottom: 5px;
+}
+.category img{
+	float:left;
+	margin: 5px;
+}
+.category .details img{
+	float:none;
+	margin: 0px;
+	border: none;
+}
+#top{
+	height: 100px;
+}
+::-webkit-scrollbar { 
+	display: none; 
+}
+#content{
+	margin-left: 5%;
+	margin-right:5%;
+	background-color:#FFF5EE;
+	min-height:500px;
+	padding:0 10px 10px 10px;
+	border:1px solid gray;
+}
+button{
+	border-radius:2px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 15px;
+	text-decoration:none;
+}
+#search, #list{
+	box-shadow:inset 0px 1px 0px 0px #f7c5c0;
+	background-color:#fc8d83;
+	border:1px solid #d83526;
+	float:left;
+}
+#clear, #directions{
+	box-shadow:inset 0px 1px 0px 0px #f7c5c0;
+	background-color:#85beff;
+	border:1px solid #2692d6;
+	float: right;
+}
+#search:hover {
+	background:linear-gradient(to bottom, #e4685d 5%, #fc8d83 100%);
+	background-color:#e4685d;
+}
+#search:active {
+	position:relative;
+	top:1px;
+}
+#searchterm, #keyword, #state, #city, #street{
+	font-size:16px;
+}
+#keyword{
+	float:right;
+}
+
+/*
+	VARIABLES FOR THE BUSINESS DETAILS PAGE
+*/
+
+#localDetails{
+	width:100%;
+	background-color:rgb(255, 255, 255);
+	margin-top:50px;
+	height:450px;
+	border-radius:4px;
+	border:1px solid #9b9b9b;
+	box-shadow: 5px 5px 5px #a7a7a7;
+}
+#localDetails p{
+	width:98%;
+	text-align:center;
+}
+#localName{
+	width: 98%;
+	text-align: center;
+	font-size:150%;
+	margin-bottom: 4px;
+	padding-bottom: 0px;
+}
+#localPhone{
+	margin-top: 4px;
+	padding-top:0px;
+}
+#localAddress{
+	font-weight:bold;
+}
+#localState{
+	margin-top:0px;
+	font-weight:bold;
+}
+#snippet{
+	width: 98%;
+	height: 180px;
+	text-align:center;
+	
+}
+#localSnippetImg, #localSnippetRating{
+	width:100px;
+	border:none;
+}
+#localSnippet{
+	text-align:left;
+	width:100%;
+	text-align: center;
+}
+
+#categoryDiv{
+	position:relative;
+	width:100%;
+	background-color:rgb(255, 255, 255);
+	margin-top:10px;
+	padding:0px;
+	height:250px;
+	border-radius:4px;
+	border:1px solid #9b9b9b;
+	box-shadow: 5px 5px 5px #a7a7a7;
+	text-align:center;
+}
+#categoryDiv h1, #categoryDiv h3{
+	position:absolute;
+	width:100%;
+	height:40px;
+	margin:0px;
+	margin-top:4px;
+	padding:0px;
+}
+#categoryDiv h1{
+	top: 5;
+	font-size: 20pt;
+}
+#categoryDiv h3{
+	margin-top: 40px;
+	top: 35;
+	font-size: 10pt;
+}
+#categoryDiv #cats{
+	position:absolute;
+	margin-top: 60px;
+}
+#cats{
+	width:100%;
+	text-align:center;
+}

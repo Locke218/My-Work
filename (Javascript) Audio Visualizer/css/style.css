@@ -1,0 +1,90 @@
+@font-face{
+	font-family: 'AmaticSC';
+	src: url('Amatic-Bold.ttf') format('truetype');
+}
+
+body {
+	background: #000;
+	font-family: 'AmaticSC';
+	font-size: 150%;
+	color: white;
+}
+
+#mainCanvas {
+	background: black;
+	float:left;
+	z-index: 0;
+}
+#topCanvas{
+	background: rgba(0,0,0,0);
+	float:left;
+	z-index:2;
+	pointer-events:none;
+	position:absolute;
+	left: 320px;
+}
+
+
+#controls{
+	float:left;
+	padding-left:7px;
+	width:300px;
+	position:relative;
+	background-color: #093A2F;
+	z-index = 3;
+}
+
+.button{
+	display: inline-block;
+	padding: 10px 5px;
+	margin-left: 5px;
+	font-size: 13px;
+	cursor: pointer;
+	text-align: center;	
+	color: white;
+	background-color: black;
+	border: 3px #093a2f solid;
+	border-radius: 12px;
+	box-shadow: 0 9px #1c1c24;
+}
+
+.button:active {
+	box-shadow: 0 5px #666;
+	transform: translateY(4px);
+}
+
+input[type=range]{
+	border: 1px solid white; 
+	background:#093a2f;
+	width: 300px;
+}
+
+input[type=range]::-moz-range-track {
+	width: 300px;
+	height: 5px;
+	background: #ddd;
+	border: none;
+	border-radius: 3px;
+}
+
+input[type=range]::-moz-range-thumb {
+	border: none;
+	height: 16px;
+	width: 16px;
+	border-radius: 50%;
+	background: black;
+}
+
+input[type=range]:-moz-focusring{
+	outline: 1px solid white;
+	outline-offset: -1px;
+}
+
+input[type=range]:focus::-moz-range-track {
+	background: #ccc;
+}
+
+#colorPicker, #slider1, #slider2{
+	width: 250px;
+	margin-left: 25px;
+}
